@@ -1,64 +1,95 @@
-import type { Project } from '../types'
+import type { Project } from "../types";
 
 export const projects: Project[] = [
   {
-    slug: 'devstack-app',
-    name: 'DevStack',
-    summary: 'Build your own developer tech stack from a curated, filterable catalog.',
+    slug: "devstack-app",
+    name: "DevStack",
+    summary:
+      "Build your own developer tech stack from a curated, filterable catalog.",
     description:
       'A responsive React app where developers browse a curated catalog of technologies, filter by category, and build a personal "stack" by adding and removing items — with live toast feedback for every action.',
-    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-    repoUrl: 'https://github.com/AtefEzaz/DevStack-app',
-    liveUrl: 'https://dev-stack-app-chi.vercel.app/',
+    tech: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    repoUrl: "https://github.com/AtefEzaz/DevStack-app",
+    liveUrl: "https://dev-stack-app-chi.vercel.app/",
     featured: true,
-    status: 'shipped',
+    status: "shipped",
   },
   {
-    slug: 'devconf2026',
-    name: 'DevConf 2026',
-    summary: 'A landing page built for a developer conference.',
+    slug: "explainable-stacking-bangladesh-cpi",
+    name: "Explainable Stacking for Bangladesh CPI",
+    summary:
+      "Forecasts Bangladesh inflation using a ridge-stacked ensemble with SHAP/LIME explainability.",
     description:
-      'A conference landing page covering schedule, speakers, and registration, built from scratch with semantic HTML, custom CSS, and vanilla JavaScript.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
-    repoUrl: 'https://github.com/AtefEzaz/devconf2026',
-    status: 'shipped',
+      "A stacking ensemble of LightGBM, XGBoost, Random Forest, CatBoost, and SVM forecasting Bangladesh consumer price inflation, achieving R² of 0.93 with SHAP and LIME used for model interpretability.",
+    tech: ["Python", "LightGBM", "XGBoost", "CatBoost", "SHAP", "LIME"],
+    status: "research",
   },
   {
-    slug: 'laptop-price-predictor',
-    name: 'Laptop Price Predictor',
-    summary: 'Predicts a laptop\u2019s market price from its specifications.',
+    slug: "devconf2026",
+    name: "DevConf 2026",
+    summary: "A landing page built for a developer conference.",
     description:
-      'A machine learning app that takes in a laptop\u2019s specifications and predicts its price, trained and evaluated on a cleaned specs-and-price dataset.',
-    tech: ['Python', 'Machine Learning'],
-    repoUrl: 'https://github.com/AtefEzaz/laptop-price-predictor-python',
-    status: 'shipped',
+      "A conference landing page covering schedule, speakers, and registration, built from scratch with semantic HTML, custom CSS, and vanilla JavaScript.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    repoUrl: "https://github.com/AtefEzaz/devconf2026",
+    status: "shipped",
   },
   {
-    slug: 'c-medical-assistant',
-    name: 'Medical Assistant',
-    summary: 'A console tool that helps generate patient prescriptions.',
+    slug: "laptop-price-predictor",
+    name: "Laptop Price Predictor",
+    summary: "Predicts a laptop\u2019s market price from its specifications.",
     description:
-      'A C program that walks a medical assistant through patient details and symptoms to help generate a prescription.',
-    tech: ['C'],
-    repoUrl: 'https://github.com/AtefEzaz/c-medical-assistant',
-    status: 'shipped',
+      "A machine learning app that takes in a laptop\u2019s specifications and predicts its price, trained and evaluated on a cleaned specs-and-price dataset.",
+    tech: ["Python", "Machine Learning"],
+    repoUrl: "https://github.com/AtefEzaz/laptop-price-predictor-python",
+    status: "shipped",
   },
   {
-    slug: 'leaf-disease-classification',
-    name: 'Potato & Tomato Leaf Disease Classification',
-    summary: 'Detects crop disease from a leaf photo using CNNs.',
+    slug: "c-medical-assistant",
+    name: "Medical Assistant",
+    summary: "A console tool that helps generate patient prescriptions.",
     description:
-      'An image classifier built with CNN, ResNet50, and InceptionV3 that detects disease in potato and tomato leaves from a photo — aimed at early, low-cost crop diagnosis.',
-    tech: ['Python', 'CNN', 'ResNet50'],
-    status: 'research',
+      "A C program that walks a medical assistant through patient details and symptoms to help generate a prescription.",
+    tech: ["C"],
+    repoUrl: "https://github.com/AtefEzaz/c-medical-assistant",
+    status: "shipped",
   },
   {
-    slug: 'deepfake-detection',
-    name: 'Deepfake Detection',
-    summary: 'Classifies whether a photo or video is real or AI-generated.',
+    slug: "leaf-disease-classification",
+    name: "Potato & Tomato Leaf Disease Classification",
+    summary: "Detects crop disease from a leaf photo using CNNs.",
     description:
-      'A deep learning model using CNN and EfficientNet to identify whether a given photo or video has been manipulated or generated.',
-    tech: ['Python', 'CNN', 'EfficientNet'],
-    status: 'research',
+      "An image classifier built with CNN, ResNet50, and InceptionV3 that detects disease in potato and tomato leaves from a photo aimed at early, low-cost crop diagnosis.",
+    tech: ["Python", "CNN", "ResNet50"],
+    status: "research",
   },
-]
+  {
+    slug: "housing-price-regression",
+    name: "Housing Price Regression Pipeline",
+    summary:
+      "Predicts housing prices with a tuned regression pipeline on the Ames housing dataset.",
+    description:
+      "An end-to-end regression pipeline on the Ames housing dataset covering missing value imputation, one-hot encoding of categorical features, and hyperparameter tuning to predict house sale prices.",
+    tech: ["Python", "Pandas", "Scikit-learn", "XGBoost"],
+    status: "shipped",
+  },
+  {
+    slug: "deepfake-detection",
+    name: "Deepfake Detection",
+    summary: "Classifies whether a photo or video is real or AI-generated.",
+    description:
+      "A deep learning model using CNN and EfficientNet to identify whether a given photo or video has been manipulated or generated.",
+    tech: ["Python", "CNN", "EfficientNet"],
+    status: "research",
+  },
+  {
+    slug: "audio-commander",
+    name: "Clap, Snap, or Whistle: Audio Commander",
+    summary:
+      "Controls website elements like dark mode or scrolling using clap, snap, or whistle sounds.",
+    description:
+      "An audio-based interaction layer trained with Google Teachable Machine on clap, snap, and whistle sounds, running live in the browser via microphone input to trigger frontend actions like toggling dark mode or scrolling.",
+    tech: ["JavaScript", "Teachable Machine", "TensorFlow.js"],
+    status: "research",
+  },
+];
