@@ -1,6 +1,7 @@
 export const profile = {
   name: "Atef Akbar Ezaz",
-  role: "Full-Stack Developer",
+  role: ["Full-Stack Developer", "Applied Machine Learning"],
+
   location: "Dhaka, Bangladesh",
   email: "atefezaz22@gmail.com",
   phone: "+880 1772 839263",

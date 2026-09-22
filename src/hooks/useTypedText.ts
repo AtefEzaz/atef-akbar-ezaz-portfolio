@@ -1,37 +1,62 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
-const prefersReducedMotion = () =>
-  typeof window !== 'undefined' &&
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+export function useTypedText(
+  words: readonly string[] | string,
+  startDelay = 500,
+  typeSpeed = 40,
+  deleteSpeed = 30,
+  pauseTime = 1500,
+) {
+  const wordList = Array.isArray(words) ? words : [words];
+  const [text, setText] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [started, setStarted] = useState(false);
 
-/**
- * Types out `text` one character at a time, starting after `startDelay` ms.
- * Respects prefers-reduced-motion by rendering the full string immediately.
- */
-export function useTypedText(text: string, startDelay = 300, speed = 45): string {
-  const [output, setOutput] = useState(prefersReducedMotion() ? text : '')
+  // initial delay before typing starts
+  useEffect(() => {
+    const timeout = setTimeout(() => setStarted(true), startDelay);
+    return () => clearTimeout(timeout);
+  }, [startDelay]);
 
   useEffect(() => {
-    if (prefersReducedMotion()) {
-      setOutput(text)
-      return
+    if (!started) return;
+
+    const currentWord = wordList[wordIndex % wordList.length];
+
+    // finished typing a word -> pause, then start deleting
+    if (!isDeleting && text === currentWord) {
+      const pause = setTimeout(() => setIsDeleting(true), pauseTime);
+      return () => clearTimeout(pause);
     }
 
-    let i = 0
-    let interval: ReturnType<typeof setInterval>
+    // finished deleting -> move to next word
+    if (isDeleting && text === "") {
+      setIsDeleting(false);
+      setWordIndex((prev) => (prev + 1) % wordList.length);
+      return;
+    }
+
+    const speed = isDeleting ? deleteSpeed : typeSpeed;
     const timeout = setTimeout(() => {
-      interval = setInterval(() => {
-        i += 1
-        setOutput(text.slice(0, i))
-        if (i >= text.length) clearInterval(interval)
-      }, speed)
-    }, startDelay)
+      setText((prev) =>
+        isDeleting
+          ? currentWord.slice(0, prev.length - 1)
+          : currentWord.slice(0, prev.length + 1),
+      );
+    }, speed);
 
-    return () => {
-      clearTimeout(timeout)
-      clearInterval(interval)
-    }
-  }, [text, startDelay, speed])
+    return () => clearTimeout(timeout);
+  }, [
+    text,
+    isDeleting,
+    started,
+    wordIndex,
+    wordList,
+    typeSpeed,
+    deleteSpeed,
+    pauseTime,
+  ]);
 
-  return output
+  return text;
 }
