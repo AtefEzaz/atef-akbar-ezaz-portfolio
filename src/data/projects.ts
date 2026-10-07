@@ -11,6 +11,7 @@ export const projects: Project[] = [
     tech: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Vercel"],
     repoUrl: "https://github.com/AtefEzaz/fitlog",
     liveUrl: "https://fitlog-opal-seven.vercel.app/",
+    featured: true,
     status: "shipped",
   },
 
