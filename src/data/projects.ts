@@ -2,6 +2,19 @@ import type { Project } from "../types";
 
 export const projects: Project[] = [
   {
+    slug: "fitlog",
+    name: "FitLog",
+    summary:
+      "A workout library to browse exercises and log your training honestly.",
+    description:
+      "A responsive workout library where users browse exercises and log their training sessions. Built with a clean, dark interface and a focus on simple, honest tracking.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Vercel"],
+    repoUrl: "https://github.com/AtefEzaz/fitlog",
+    liveUrl: "https://fitlog-opal-seven.vercel.app/",
+    status: "shipped",
+  },
+
+  {
     slug: "devstack-app",
     name: "DevStack",
     summary:
