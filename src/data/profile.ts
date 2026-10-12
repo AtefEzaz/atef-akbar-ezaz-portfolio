@@ -6,7 +6,7 @@ export const profile = {
   email: "atefezaz22@gmail.com",
   phone: "+880 1772 839263",
   github: "https://github.com/AtefEzaz",
-  linkedin: "https://www.linkedin.com/in/atef-ezaz-8a1746361/",
+  linkedin: "https://www.linkedin.com/in/atef-ezaz/",
   facebook: "https://www.facebook.com/atef.ezaz111222/",
   tagline:
     "I build full-stack web products with React, Next.js, and the MERN stack, with a strong applied background in machine learning and deep learning  and I ship faster by working with AI as part of my process, not around it.",
