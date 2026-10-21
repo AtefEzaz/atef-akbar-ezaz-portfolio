@@ -1,6 +1,152 @@
+// import type { Project } from "../types";
+
+// export const projects: Project[] = [
+//   {
+//     slug: "fitlog",
+//     name: "FitLog",
+//     summary:
+//       "A workout library to browse exercises and log your training honestly.",
+//     description:
+//       "A responsive workout library where users browse exercises and log their training sessions. Built with a clean, dark interface and a focus on simple, honest tracking.",
+//     tech: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Vercel"],
+//     repoUrl: "https://github.com/AtefEzaz/fitlog",
+//     liveUrl: "https://fitlog-opal-seven.vercel.app/",
+//     featured: true,
+//     status: "shipped",
+//   },
+
+//   {
+//     slug: "devstack-app",
+//     name: "DevStack",
+//     summary:
+//       "Build your own developer tech stack from a curated, filterable catalog.",
+//     description:
+//       'A responsive React app where developers browse a curated catalog of technologies, filter by category, and build a personal "stack" by adding and removing items — with live toast feedback for every action.',
+//     tech: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+//     repoUrl: "https://github.com/AtefEzaz/DevStack-app",
+//     liveUrl: "https://dev-stack-app-chi.vercel.app/",
+//     featured: true,
+//     status: "shipped",
+//   },
+//   {
+//     slug: "explainable-stacking-bangladesh-cpi",
+//     name: "Explainable Stacking for Bangladesh CPI",
+//     summary:
+//       "Forecasts Bangladesh inflation using a ridge-stacked ensemble with SHAP/LIME explainability.",
+//     description:
+//       "A stacking ensemble of LightGBM, XGBoost, Random Forest, CatBoost, and SVM forecasting Bangladesh consumer price inflation, achieving R² of 0.93 with SHAP and LIME used for model interpretability.",
+//     tech: ["Python", "LightGBM", "XGBoost", "CatBoost", "SHAP", "LIME"],
+//     status: "research",
+//   },
+//   {
+//     slug: "devconf2026",
+//     name: "DevConf 2026",
+//     summary: "A landing page built for a developer conference.",
+//     description:
+//       "A conference landing page covering schedule, speakers, and registration, built from scratch with semantic HTML, custom CSS, and vanilla JavaScript.",
+//     tech: ["HTML", "CSS", "JavaScript"],
+//     repoUrl: "https://github.com/AtefEzaz/devconf2026",
+//     status: "shipped",
+//   },
+//   {
+//     slug: "laptop-price-predictor",
+//     name: "Laptop Price Predictor",
+//     summary: "Predicts a laptop\u2019s market price from its specifications.",
+//     description:
+//       "A machine learning app that takes in a laptop\u2019s specifications and predicts its price, trained and evaluated on a cleaned specs-and-price dataset.",
+//     tech: ["Python", "Machine Learning"],
+//     repoUrl: "https://github.com/AtefEzaz/laptop-price-predictor-python",
+//     status: "shipped",
+//   },
+//   {
+//     slug: "c-medical-assistant",
+//     name: "Medical Assistant",
+//     summary: "A console tool that helps generate patient prescriptions.",
+//     description:
+//       "A C program that walks a medical assistant through patient details and symptoms to help generate a prescription.",
+//     tech: ["C"],
+//     repoUrl: "https://github.com/AtefEzaz/c-medical-assistant",
+//     status: "shipped",
+//   },
+//   {
+//     slug: "leaf-disease-classification",
+//     name: "Potato & Tomato Leaf Disease Classification",
+//     summary: "Detects crop disease from a leaf photo using CNNs.",
+//     description:
+//       "An image classifier built with CNN, ResNet50, and InceptionV3 that detects disease in potato and tomato leaves from a photo aimed at early, low-cost crop diagnosis.",
+//     tech: ["Python", "CNN", "ResNet50"],
+//     status: "research",
+//   },
+//   {
+//     slug: "housing-price-regression",
+//     name: "Housing Price Regression Pipeline",
+//     summary:
+//       "Predicts housing prices with a tuned regression pipeline on the Ames housing dataset.",
+//     description:
+//       "An end-to-end regression pipeline on the Ames housing dataset covering missing value imputation, one-hot encoding of categorical features, and hyperparameter tuning to predict house sale prices.",
+//     tech: ["Python", "Pandas", "Scikit-learn", "XGBoost"],
+//     status: "shipped",
+//   },
+//   {
+//     slug: "deepfake-detection",
+//     name: "Deepfake Detection",
+//     summary: "Classifies whether a photo or video is real or AI-generated.",
+//     description:
+//       "A deep learning model using CNN and EfficientNet to identify whether a given photo or video has been manipulated or generated.",
+//     tech: ["Python", "CNN", "EfficientNet"],
+//     status: "research",
+//   },
+//   {
+//     slug: "audio-commander",
+//     name: "Clap, Snap, or Whistle: Audio Commander",
+//     summary:
+//       "Controls website elements like dark mode or scrolling using clap, snap, or whistle sounds.",
+//     description:
+//       "An audio-based interaction layer trained with Google Teachable Machine on clap, snap, and whistle sounds, running live in the browser via microphone input to trigger frontend actions like toggling dark mode or scrolling.",
+//     tech: ["JavaScript", "Teachable Machine", "TensorFlow.js"],
+//     status: "research",
+//   },
+// ];
+
 import type { Project } from "../types";
 
+/**
+ * Returns the image to show for a project.
+ * 1. Uses `image` if you set one (put files in /public/projects/).
+ * 2. Otherwise, if the project has a live site, auto-generates a screenshot
+ *    of the live site (thum.io). Replace with your own screenshot for best quality.
+ */
+export function getProjectImage(project: Project): string | undefined {
+  if (project.image) return project.image;
+  if (project.liveUrl) {
+    return `https://image.thum.io/get/width/1200/crop/750/noanimate/${project.liveUrl}`;
+  }
+  return undefined;
+}
+
 export const projects: Project[] = [
+  {
+    slug: "bazardor",
+    name: "BazarDor",
+    summary:
+      "A Bangla price tracker for everyday groceries, with daily market prices at a glance.",
+    description:
+      "A responsive Bangla-first web app that tracks the daily prices of rice, lentils, oil, vegetables, fish, meat, eggs and spices. Users can see which prices rose or fell today, sort products by price, and sign in with email, Google or GitHub to compare minimum, maximum and average prices across different bazars.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "BetterAuth",
+      "MongoDB",
+      "Vercel",
+    ],
+    repoUrl: "https://github.com/AtefEzaz/BazarDor-app",
+    liveUrl: "https://daily-bazar-dor-beige.vercel.app/",
+
+    image: "/images/daily-bazar-dor.png",
+    featured: true,
+    status: "shipped",
+  },
   {
     slug: "fitlog",
     name: "FitLog",
@@ -11,6 +157,8 @@ export const projects: Project[] = [
     tech: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Vercel"],
     repoUrl: "https://github.com/AtefEzaz/fitlog",
     liveUrl: "https://fitlog-opal-seven.vercel.app/",
+
+    image: "/images/fitlog.png",
     featured: true,
     status: "shipped",
   },
@@ -25,6 +173,7 @@ export const projects: Project[] = [
     tech: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     repoUrl: "https://github.com/AtefEzaz/DevStack-app",
     liveUrl: "https://dev-stack-app-chi.vercel.app/",
+    image: "/images/devstack.png",
     featured: true,
     status: "shipped",
   },
@@ -46,6 +195,7 @@ export const projects: Project[] = [
       "A conference landing page covering schedule, speakers, and registration, built from scratch with semantic HTML, custom CSS, and vanilla JavaScript.",
     tech: ["HTML", "CSS", "JavaScript"],
     repoUrl: "https://github.com/AtefEzaz/devconf2026",
+    // image: "/projects/devconf2026.png",
     status: "shipped",
   },
   {
